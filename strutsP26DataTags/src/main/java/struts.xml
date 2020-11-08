@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd"> 
+<struts>
+
+	<constant name = "struts.custom.i18n.resources" value = "text" />
+	
+	<package name="default" extends="struts-default">
+		
+		<action name="action">
+			<result name="success">action-success.jsp</result>
+		</action>
+		
+		<action name="actions" class="com.strutsP26DataTags.model.action.User">
+			<result name="success">generator.jsp</result>
+		</action>
+	
+		<action name="include">
+			<result >include-success.jsp</result>
+		</action>
+		
+		<action name="bean">
+			<result >bean-success.jsp</result>
+		</action>
+		
+		<action name="date" class="com.strutsP26DataTags.model.date.CurrentDate">
+			<result name="success" >date-success.jsp</result>
+		</action>
+		
+		<action name="property_push_set" class="com.strutsP26DataTags.model.property_push_set.SystemDetails">
+			<result name="success" >property-success.jsp</result>
+		</action>
+		
+		
+		
+		<action name="text" class="com.strutsP26DataTags.model.text.User">
+			<result name="success" >text-success.jsp</result>
+		</action>
+		
+		
+	</package>
+</struts>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- <!DOCTYPE validators PUBLIC 
+"-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd"> -->
+        
+  <!--   <!DOCTYPE validators [
+<!ELEMENT validators (validator)+>
+
+<!ELEMENT validator (#PCDATA)>
+<!ATTLIST validator
+name CDATA #REQUIRED
+class CDATA #REQUIRED
+>
+]>  -->   
+
+<!-- <!DOCTYPE validators PUBLIC 
+"-//Apache Struts//XWork Validator 1.0.3//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd"> -->
+
+<!DOCTYPE validators PUBLIC
+        "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+        "http://struts.apache.org/dtds/xwork-validator-1.0.2.dtd">
+    
+<validators>
+
+<!-- Plain-Validator Syntax --> 
+<validator type="required" >
+<param name="fieldName">gender</param>
+<param name="trim">true</param>
+<message>Gender is required</message>  
+</validator> 
+
+  <!-- Field-Validator Syntax -->
+<field name="username">
+<field-validator type="requiredstring">
+<param name="trim">true</param>
+<message>username is required</message>
+</field-validator>
+</field>
+
+<field name="mobileno">
+<field-validator type="stringlength">
+<param name="trim">true</param>
+<param name="minLength">10</param>
+<param name="maxLength">10</param>
+<message>Mobile Number Must be 10 digit</message>
+</field-validator>
+<field-validator type="regex">
+<param name="regexExpression">[0-9]{0,10}</param>
+<message>Mobile Number Must be digit</message>
+</field-validator>
+</field>
+
+<!-- <field-validator type="email">-->
+<field name="emailid">
+<field-validator type="requiredstring">  
+<param name="trim">true</param>
+<message>Email must be required</message>
+</field-validator>
+<field-validator type="regex">  
+<param name="regexExpression"><![CDATA[ [A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4} ]]></param>
+<message>Invalid Email Id</message>
+</field-validator>
+</field>
+
+<field name="age">
+<field-validator type="int"> 
+<param name="min">18</param>
+<param name="max">60</param>
+<message>Age must be between ${min} and ${max}</message>
+</field-validator>
+</field>
+
+<field name="height">
+<field-validator type="double"> 
+ <param name="minInclusive">4.0</param>
+<param name="maxInclusive">9.0</param> 
+<!-- <param name="minExclusive">4.0</param>
+<param name="maxExclusive">9.0</param> -->
+<message>Height must be between ${minInclusive} and ${maxInclusive}</message>
+</field-validator>
+</field>
+
+<field name="dob">
+<field-validator type="required">
+<param name="trim">true</param>
+<message>DOB is required</message>
+</field-validator>
+<field-validator type="date">  
+<param name="min">01/01/1980</param>
+<param name="max">01/01/2030</param>
+<message>DOB must be between ${min} and ${max}</message>
+</field-validator>
+</field>
+
+
+<field name="url">
+<field-validator type="requiredstring"> 
+<param name="trim">true</param>
+<message>URL must be required</message>
+</field-validator>
+<field-validator type="url"> 
+<message>URL must be correct e.g. http://www.javatpoint.com</message>
+</field-validator>
+</field>
+
+<field name="password">
+<field-validator type="requiredstring"> 
+<param name="trim">true</param>
+<message>password must be required</message>
+</field-validator>
+<field-validator type="stringlength">
+<param name="trim">true</param>
+<param name="minLength">8</param>
+<param name="maxLength">32</param>
+<message>password must be between ${minLength} and ${maxLength}</message>
+</field-validator>
+<field-validator type="regex"> 
+<param name="regexExpression">((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,32})</param>
+<message>password must be one digit from 0-9 , one lowercase characters ,one uppercase characters
+one special symbols in the list "@#$%" , length at least 8 characters and maximum of 32</message>
+</field-validator>
+</field>
+
+<field name="cPassword">
+<field-validator type="requiredstring"> 
+<param name="trim">true</param>
+<message>password must be required</message>
+</field-validator>
+<field-validator type="stringlength">
+<param name="trim">true</param>
+<param name="minLength">8</param>
+<param name="maxLength">32</param>
+<message>password must be between ${minLength} and ${maxLength}</message>
+</field-validator>
+<field-validator type="regex"> 
+<param name="regexExpression">((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,32})</param>
+<message>password must be one digit from 0-9 , one lowercase characters ,one uppercase characters
+one special symbols in the list "@#$%" , length at least 8 characters and maximum of 32</message>
+</field-validator>
+<field-validator type="fieldexpression"> 
+<param name="expression">(password == cPassword )</param>
+<message>password and Re-entered password must be same.</message>
+</field-validator>
+</field>
+
+</validators>

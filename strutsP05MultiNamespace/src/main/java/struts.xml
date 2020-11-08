@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd"> 
+<struts>
+
+	<package name="default" namespace="/" extends="struts-default">
+		
+		<action name="login">
+			<result >login.jsp</result>
+		</action>
+		
+		<action name="login_action" class="com.strutsP05MultiNamespace.model.Login">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+		
+		
+	</package>
+	
+	<package name="admin" namespace="/admin" extends="struts-default">
+		
+		<action name="admin_login">
+			<result >login.jsp</result>
+		</action>
+		
+		<action name="admin_action" class="com.strutsP05MultiNamespace.model.Login">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+	</package>
+	
+	<package name="user"  namespace="/user" extends="struts-default">
+		
+		<action name="user_login">
+			<result name="success">login.jsp</result>
+		</action>
+		
+		<action name="user_action" class="com.strutsP05MultiNamespace.model.Login">
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+	</package>
+	
+</struts>
