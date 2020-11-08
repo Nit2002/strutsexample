@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts  
+Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd"> 
+<struts>
+
+	<!-- 
+	name is must for defining any package.
+	namespace It is an optional attribute of package. If namespace is not present, / is assumed as the 
+	default namespace. In such case, to invoke the action class, you need this URI:
+	/actionName.action  
+	extends The package element mostly extends the struts-default package where interceptors and result 
+	types are defined. If you extend struts-default, all the actions of this package can use the 
+	interceptors and result-types defined in the struts-default.xml file.
+	 -->
+	<package name="default" extends="struts-default">
+	
+		<!-- 
+		name is must for defining any action.
+		class is the optional attribute of action. If you omit the class attribute, ActionSupport 
+		will be considered as the default action. A simple action may be as:
+		<action name="product">  
+		method It is an optional attribute. If you don't specify method attribute, execute method will 
+		be considered as the method of action class. So this code:
+		<action name="product" class="com.javatpoint.Product">  
+		will be same as:
+		<action name="product" class="com.javatpoint.Product" method="execute">  
+		 -->
+		<action name="login_action" class="com.strutsP03Configuration.model.Login">
+			
+			<!--
+			name is the optional attribute. If you omit the name attribute, success is assumed as the 
+			default result name.
+			type is the optional attribute. If you omit the type attribute, dispatcher is assumed as 
+			the default result type. 
+			 -->
+			<result name="success">success.jsp</result>
+			<result name="error">error.jsp</result>
+		</action>
+	</package>
+</struts>
